@@ -1,14 +1,15 @@
 import React from "react";
 
 class GreetingDisplay extends React.Component {
-  // Get props and set state
   constructor(props) {
     super(props);
     this.state = {
       greeting: "",
-      name: "Dario",
+      name: "",
       currentTime: new Date(),
     };
+    this.setGreeting = this.setGreeting.bind(this);
+    this.setCurrentTime = this.setCurrentTime.bind(this);
   }
 
   setGreeting() {
@@ -24,17 +25,26 @@ class GreetingDisplay extends React.Component {
     }
   }
 
-  componentDidMount(): void {
+  setCurrentTime() {
+    this.setState({ currentTime: new Date() });
+  }
+
+  componentDidMount() {
     this.setGreeting();
+    this.clockInterval = setInterval(this.setCurrentTime, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.clockInterval);
   }
 
   render() {
     return (
-      <div>
+      <div className="greeting-display">
         <h1>
-          {this.state.greeting}, {this.state.name}
+          {this.state.greeting}, {this.props.name}
         </h1>
-        {this.state.currentTime.toLocaleTimeString()}
+        <p className="clock">{this.state.currentTime.toLocaleTimeString()}</p>
       </div>
     );
   }
