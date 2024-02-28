@@ -5,7 +5,6 @@ class GreetingDisplay extends React.Component {
     super(props);
     this.state = {
       greeting: "",
-      name: "",
       currentTime: new Date(),
     };
     this.setGreeting = this.setGreeting.bind(this);
@@ -42,7 +41,8 @@ class GreetingDisplay extends React.Component {
     return (
       <div className="greeting-display">
         <h1>
-          {this.state.greeting}, {this.props.name}
+          {this.state.greeting}
+          {this.props.name && ", " + this.props.name}
         </h1>
         <p className="clock">{this.state.currentTime.toLocaleTimeString()}</p>
       </div>

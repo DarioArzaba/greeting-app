@@ -1,10 +1,96 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .container {
-  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* background-color: #242424; */
+  transition: background-color 1s ease-in-out;
+  color: #fff;
 }
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  
+}
+
+.form {
+  display: flex;
+  align-items: center;
+}
+
+.form label {
+  margin-right: 1rem;
+
+  /* White text */
+}
+
+.name-input {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-bottom: 1px solid #ffffff68;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.name-input::placeholder {
+  color: #fff;
+  opacity: 0.5;
+  font-size: 1rem;
+}
+
+.greeting-display {
+  font-size: 1.5rem;
+}
+
+.clock {
+  font-size: 3rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+@media only screen and (max-width: 400px) {
+  .greeting-display {
+    font-size: 1rem;
+  }
+
+  .clock {
+    font-size: 1.5rem;
+  }
+
+  .name-input {
+    padding: 0;
+    font-size: 1;
+  }
+
+}
+
+@media only screen and (max-height: 500px) {
+  .greeting-display {
+    font-size: 1rem;
+  }
+
+  .clock {
+    font-size: 1.5rem;
+  }
+
+  .name-input {
+    font-size: 1em;
+    padding: 0;
+  }
+
+}
+
+

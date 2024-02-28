@@ -7,7 +7,7 @@ class GreetingForm extends React.Component {
   }
 
   handleChange = (e) => {
-    this.setState({ name: e.target.value });
+    this.setState({ name: e.target.value.slice(0, 35) });
   };
 
   handleKeyPress = (e) => {
@@ -27,6 +27,8 @@ class GreetingForm extends React.Component {
           onChange={this.handleChange}
           onKeyDown={this.handleKeyPress}
           placeholder="Your Name"
+          className="name-input"
+          maxLength={35}
         />
       </form>
     );
