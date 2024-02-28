@@ -1,13 +1,14 @@
 import "./App.css";
 import React from "react";
-import GreetingContent from "./components/GreetingContent";
+import GreetingDisplay from "./components/GreetingDisplay";
+import GreetingForm from "./components/GreetingForm";
 
 const App = (): React.JSX.Element => {
   return (
     <>
       <div className="container">
-        {/* Name Form  */}
-        <GreetingContent />
+        <GreetingDisplay />
+        <GreetingForm />
       </div>
     </>
   );
