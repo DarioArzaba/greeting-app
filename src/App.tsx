@@ -3,14 +3,20 @@ import React from "react";
 import GreetingDisplay from "./components/GreetingDisplay";
 import GreetingForm from "./components/GreetingForm";
 
-class App extends React.Component {
-  constructor(props) {
+interface AppState {
+  name: string;
+  hue: number;
+}
+
+class App extends React.Component<object, AppState> {
+  intervalId: number | undefined;
+  constructor(props: object) {
     super(props);
     this.state = { name: "", hue: 0 };
     this.handleNameChange = this.handleNameChange.bind(this);
   }
 
-  handleNameChange = (newName) => {
+  handleNameChange = (newName: string) => {
     this.setState({ name: newName });
   };
 
