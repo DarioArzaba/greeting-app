@@ -8,9 +8,9 @@ interface AppState {
   hue: number;
 }
 
-class App extends React.Component<object, AppState> {
+class App extends React.Component<{ name: string }, AppState> {
   intervalId: number | undefined;
-  constructor(props: object) {
+  constructor(props: { name: string }) {
     super(props);
     this.state = { name: "", hue: 0 };
     this.handleNameChange = this.handleNameChange.bind(this);

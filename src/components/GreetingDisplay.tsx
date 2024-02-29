@@ -5,9 +5,12 @@ interface GreetingDisplayState {
   currentTime: Date;
 }
 
-class GreetingDisplay extends React.Component<object, GreetingDisplayState> { // <--- Don't use 'object' as a type for props.
+class GreetingDisplay extends React.Component<
+  { name: string },
+  GreetingDisplayState
+> {
   clockInterval: number | undefined;
-  constructor(props: object) {
+  constructor(props: { name: string }) {
     super(props);
     this.state = {
       currentTime: new Date(),
