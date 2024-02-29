@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 class GreetingForm extends React.Component {
-  constructor(props: object) {
+  constructor(props: object) { // <--- Do not type props as 'object'
     super(props);
     this.state = { name: "" };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this); // <--- Remove this as you already have an anonymous function bound to its respective scope.
   }
 
   handleChange = (e) => {
-    this.setState({ name: e.target.value.slice(0, 35) });
+    this.setState({ name: e.target.value.slice(0, 35) }); // <---- Do you need to programatically restrict the length? You are already configuring here: a)
   };
 
   handleSubmit = (e) => {
@@ -27,7 +27,7 @@ class GreetingForm extends React.Component {
           onChange={this.handleChange}
           placeholder="Enter Your Name"
           className="name-input"
-          maxLength={35}
+          maxLength={35} // a) <--- Here
         />
         <button type="submit" className="submit-button">
           Submit
